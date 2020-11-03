@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+  <head lang="fr">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Wiz U</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+
+
+    <script src='/socket.io/socket.io.js'></script>
+    <script>
+      const socket = io();
+
+      const send = function () {
+        let date = new Date();
+        let newDate = date.toLocaleTimeString();
+
+        let text = document.getElementById('m').value;
+        socket.emit('chat message',text);
+        document.getElementById("m").value = "";
+        document.getElementById("time").innerHTML = newDate;
+      }
+
+      function keyPressListener(e) {
+        if (e.keyCode == 13) {
+          send();
+    }
+}
+
+      const receive = function(msg) {
+        let date = new Date();
+        let newDate = date.toLocaleTimeString();
+
+        let li = document.createElement('li');
+        li.innerText = msg+" "+newDate;
+        document.getElementById('messages').appendChild(li);
+        // li.after(newDate);
+        // document.getElementById('messages').innerHTML += newDate;
+      }
+
+      socket.on('chat message', receive);
+    </script>
+
+
+    <div>
+      <ul id="messages"></ul>
+      <div class="zone_saisie">
+        
+          <input id="m" placeholder="Entrez votre message..." onkeypress="keyPressListener(event)" /> 
+            <a class="sendIt" onclick="send()" >
+              <span class="sendIt-text">Envoyer</span>
+              <span class="sendIt-icon"><svg width="16" height="16" id="i_pos" viewBox="2 2 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.081 4.182a.5.5 0 01.104.557l-5.657 12.727a.5.5 0 01-.917-.006L7.57 12.694l-4.766-2.042a.5.5 0 01-.006-.917L15.525 4.08a.5.5 0 01.556.103zM4.25 10.184l3.897 1.67a.5.5 0 01.262.263l1.67 3.897L14.743 5.52 4.25 10.184z" clip-rule="evenodd"/>
+            </svg></span>
+            </a>
+            <!-- <div id="time">MABITE</div> -->
+      </div>
+     
+    </div>
+    
+  </body>
+</html>

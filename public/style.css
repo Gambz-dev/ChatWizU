@@ -1,0 +1,90 @@
+* { margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+body { 
+    font: 13px Helvetica, Arial; 
+}
+
+.zone_saisie { 
+    background: rgb(163,214,246);
+    background: linear-gradient(90deg, rgba(163,214,246,1) 11%, rgba(90,181,238,1) 46%, rgba(2,54,87,1) 82%);
+    padding: 3px; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%;
+    height: 50px;
+    border: 2px solid black;
+}
+.zone_saisie input { 
+    border: 0;
+    bottom: 10px; 
+    padding: 10px; 
+    width: 90%; 
+    margin-right: .5%; }
+.zone_saisie button { 
+    width: 9%; 
+    /* background: rgb(130, 224, 255);  */
+    border: none; 
+    padding: 10px; }
+#messages { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; }
+#messages li { 
+    padding: 5px 10px;
+}
+#messages li:nth-child(odd) { 
+    background: #eee; 
+}
+
+#send {
+    height: 40px;
+    width: 40px;
+}
+/*CSS CUSTOM BUTTON */
+
+.sendIt {
+	font-size: 16px;
+	border-radius: 5px;
+	border: solid 1px #3866A3;
+	color: #FFFFFF;
+	background: linear-gradient(105deg, #63B8EE 23%, #468CCF 90%);
+	text-shadow: 1px 1px 0px #528ecc;
+	box-shadow: inset 1px 1px 2px 0px #bbdaf7;
+	font-family: Arial;
+	cursor: pointer;
+	text-align: center;
+	user-select: none;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+.sendIt:hover {
+	background: linear-gradient(105deg, #468CCF 23%, #63B8EE 90%);
+}
+.sendIt:active {
+	position: relative;
+	top: 1px;
+}
+.sendIt > span {
+	display: block;
+}
+.sendIt-icon {
+	padding: 10px 10px;
+	border-left: 1px solid rgba(255, 255, 255, 0.16);
+	box-shadow: rgba(0, 0, 0, 0.14) 1px 0px 0px inset;
+}
+.sendIt-icon svg {
+	vertical-align: middle;
+}
+.sendIt-text {
+	padding: 10px 10px;
+}
+
+#time {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    border: 2px solid black;
+}
